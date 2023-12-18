@@ -1,8 +1,9 @@
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 public class Day1 {
-    public static void main(String[] args) {
+    public int solveB(List<String> strings) {
         Map<String, Integer> numbers = Map.of(
                 "one", 1,
                 "two", 2,
@@ -15,11 +16,9 @@ public class Day1 {
                 "nine", 9
         );
 
-        var scanner = CodeUtil.getScanner("/advent1input.txt");
 
         int output = 0;
-        while (scanner.hasNextLine()) {
-            var line = scanner.nextLine();
+        for (String line : strings) {
             int firstNum = -1, lastNum = -1;
             for (int i = 0; i < line.length(); i++) {
                 char c = line.charAt(i);
@@ -41,6 +40,6 @@ public class Day1 {
             }
             output += firstNum * 10 + lastNum;
         }
-        System.out.println(output);
+        return output;
     }
 }
