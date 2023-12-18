@@ -13,7 +13,19 @@ public class Day5Test {
     @Test
     void solveInputA() {
         long output = new Day5().solveA(getInput("day5-input.txt"));
-        Assertions.assertEquals(-1, output);
+        Assertions.assertEquals(174137457, output);
+    }
+
+    @Test
+    void solveExampleB() {
+        long output = new Day5().solveB(getInput("day5-example.txt"));
+        Assertions.assertEquals(46, output);
+    }
+
+    @Test
+    void solveInputB() {
+        long output = new Day5().solveB(getInput("day5-input.txt"));
+        Assertions.assertEquals(1493866, output);
     }
 
     Day5Input getInput(String file) {
@@ -42,18 +54,6 @@ public class Day5Test {
         System.out.println(input);
         return input;
     }
-
-//    @Test
-//    void solveExampleB() {
-//        long output = new Day4().solveB(getInput("day4-example.txt"));
-//        Assertions.assertEquals(30, output);
-//    }
-//
-//    @Test
-//    void solveInputB() {
-//        long output = new Day4().solveB(getInput("day4-input.txt"));
-//        Assertions.assertEquals(5329815, output);
-//    }
 }
 
 

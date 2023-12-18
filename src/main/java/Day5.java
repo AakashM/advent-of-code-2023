@@ -1,7 +1,5 @@
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
 public class Day5 {
 
@@ -32,8 +30,16 @@ public class Day5 {
     }
 
     public long solveB(Day5Input input) {
-        long output = 0;
-        return output;
+        this.input = input;
+        long lowest = Long.MAX_VALUE;
+        List<Long> seeds = input.seeds();
+        for (int i = 0; i < seeds.size(); i += 2) {
+            lowest = Math.min(
+                    lowest,
+                    LongStream.range(seeds.get(i), seeds.get(i) + seeds.get(i + 1)).parallel().map(this::getLocationForSeed).min().getAsLong()
+            );
+        }
+        return lowest;
     }
 }
 
