@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.Map;
 
-public class Advent2A {
+public class Day2A {
     Map<String, Integer> map = Map.of(
             "red", 12,
             "green", 13,

@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Advent2B {
+public class Day2B {
     int solve(List<String> input) {
         int output = 0;
         int game = 1;

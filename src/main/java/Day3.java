@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Day3A {
+public class Day3 {
     Map<Gear, List<Integer>> gears = new HashMap<>();
     Pattern NUMBER_PATTERN = Pattern.compile("\\d+");
 

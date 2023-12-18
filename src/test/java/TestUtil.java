@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 
-public class TestInput {
+public class TestUtil {
     @SneakyThrows
     static Scanner getScanner(String file) {
         return new Scanner(getPath(file));
@@ -20,6 +20,6 @@ public class TestInput {
 
     @SneakyThrows
     private static Path getPath(String file) {
-        return Paths.get(TestInput.class.getResource(file).toURI());
+        return Paths.get(TestUtil.class.getResource(file).toURI());
     }
 }

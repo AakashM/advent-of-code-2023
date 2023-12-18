@@ -1,7 +1,7 @@
 import java.util.Map;
 import java.util.Optional;
 
-public class Advent1 {
+public class Day1 {
     public static void main(String[] args) {
         Map<String, Integer> numbers = Map.of(
                 "one", 1,
@@ -15,7 +15,7 @@ public class Advent1 {
                 "nine", 9
         );
 
-        var scanner = MyScanner.getScanner("/advent1input.txt");
+        var scanner = CodeUtil.getScanner("/advent1input.txt");
 
         int output = 0;
         while (scanner.hasNextLine()) {
