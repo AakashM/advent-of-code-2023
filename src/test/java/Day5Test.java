@@ -36,23 +36,27 @@ public class Day5Test {
 
         var mappings = new ArrayList<Mapping>();
         while (scanner.hasNext()) {
-            var mappingRanges = new ArrayList<MappingRange>();
-            var name = scanner.next();
-            scanner.next(); // skip "map:"
-            while(scanner.hasNextLong()) {
-                long destination = scanner.nextLong();
-                long source = scanner.nextLong();
-                long range = scanner.nextLong();
-                mappingRanges.add(new MappingRange(source, destination, range));
-            }
-
-            var mapping = new Mapping(name, mappingRanges);
-            mappings.add(mapping);
+            mappings.add(parseMapping(scanner));
         }
 
         var input = new Day5Input(seeds, mappings);
         System.out.println(input);
         return input;
+    }
+
+    private static Mapping parseMapping(Scanner scanner) {
+        var mappingRanges = new ArrayList<MappingRange>();
+        var name = scanner.next();
+        scanner.next(); // skip "map:"
+        while(scanner.hasNextLong()) {
+            long destination = scanner.nextLong();
+            long source = scanner.nextLong();
+            long range = scanner.nextLong();
+            mappingRanges.add(new MappingRange(source, destination, range));
+        }
+
+        var mapping = new Mapping(name, mappingRanges);
+        return mapping;
     }
 }
 
