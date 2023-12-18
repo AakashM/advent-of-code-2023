@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 public class Advent2ATest {
     @Test
     void solveExA() {
-        int output = new Advent2A().solve(TestInput.readInput("advent2ex.txt"));
+        int output = new Advent2A().solve(TestInput.readInput("advent2example.txt"));
         Assertions.assertEquals(8, output);
     }
 
