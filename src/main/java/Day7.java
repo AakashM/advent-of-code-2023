@@ -38,24 +38,23 @@ public class Day7 {
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
         List<Long> frequencies = frequencyMap.values().stream().sorted().toList().reversed();
+        int PRIORITY = 1100;
         if (frequencies.get(0) == 5) {
-            return 100;
+            return PRIORITY + 9;
         } else if (frequencies.get(0) == 4) {
-            return 99;
+            return PRIORITY + 8;
         } else if (frequencies.get(0) == 3 && frequencies.get(1) == 2) {
-            return 98;
+            return PRIORITY + 7;
         } else if (frequencies.get(0) == 3) {
-            return 97;
+            return PRIORITY + 6;
         } else if (frequencies.get(0) == 2 && frequencies.get(1) == 2) {
-            return 96;
+            return PRIORITY + 5;
         } else if (frequencies.get(0) == 2) {
-            return 95;
+            return PRIORITY + 4;
+        } else if (frequencies.get(0) == 1) {
+            return PRIORITY + 3;
         } else {
-            return hand.cards().chars()
-                    .mapToObj(value -> (char) value)
-                    .map(this::getCardComparisonValue)
-                    .mapToInt(Integer::intValue)
-                    .max().getAsInt();
+            throw new RuntimeException("Should not reach here");
         }
     }
 

@@ -15,7 +15,7 @@ public class Day7Test {
     @Test
     void solveInputA() {
         long output = new Day7().solveA(getInput("day7-input.txt"));
-        Assertions.assertEquals(251230845, output);
+        Assertions.assertEquals(251058093, output);
     }
 
 //    @Test
