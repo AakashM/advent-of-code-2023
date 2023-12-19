@@ -6,6 +6,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Day7 {
+    private boolean isJoker = false;
     static Map<Character, Integer> cardComparisonValues = Map.ofEntries(
             new SimpleEntry<>('2', 2),
             new SimpleEntry<>('3', 3),
@@ -35,9 +36,19 @@ public class Day7 {
     Integer getHandComparisonValue(Hand hand) {
         Map<Character, Long> frequencyMap = hand.cards().chars()
                 .mapToObj(value -> (char) value)
+                .filter(c -> !(isJoker && c=='J'))
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
         List<Long> frequencies = frequencyMap.values().stream().sorted().toList().reversed();
+        frequencies = new ArrayList<>(frequencies);
+        if(isJoker) {
+            long countOfJokers = hand.cards().chars().mapToObj(value -> (char) value).filter(c->c=='J').count();
+            if(frequencies.size() > 0) {
+                frequencies.set(0, frequencies.get(0)+countOfJokers);
+            } else {
+                frequencies.add(countOfJokers);
+            }
+        }
         int PRIORITY = 1100;
         if (frequencies.get(0) == 5) {
             return PRIORITY + 9;
@@ -71,7 +82,13 @@ public class Day7 {
     }
 
     Integer getCardComparisonValue(char c) {
+        if (isJoker && c == 'J') return -1;
         return cardComparisonValues.get(c);
+    }
+
+    public long solveB(List<Hand> hands) {
+        isJoker = true;
+        return solveA(hands);
     }
 
     record Hand(String cards, int bid) {

@@ -18,17 +18,17 @@ public class Day7Test {
         Assertions.assertEquals(251058093, output);
     }
 
-//    @Test
-//    void solveExampleB() {
-//        long output = new Day7().solveB(new Race(71530, 940200));
-//        Assertions.assertEquals(71503, output);
-//    }
-//
-//    @Test
-//    void solveInputB() {
-//        long output = new Day7().solveB(new Race(41968894,214178911271055L));
-//        Assertions.assertEquals(30077773, output);
-//    }
+    @Test
+    void solveExampleB() {
+        long output = new Day7().solveB(getInput("day7-example.txt"));
+        Assertions.assertEquals(5905, output);
+    }
+
+    @Test
+    void solveInputB() {
+        long output = new Day7().solveB(getInput("day7-input.txt"));
+        Assertions.assertEquals(249781879, output);
+    }
 
     List<Day7.Hand> getInput(String file) {
         var lines = TestUtil.readInput(file);
