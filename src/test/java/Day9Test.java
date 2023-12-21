@@ -19,17 +19,17 @@ public class Day9Test {
         Assertions.assertEquals(1637452029, output);
     }
 
-//    @Test
-//    void solveExampleB() {
-//        long output = new Day9().solveB(getInput("day9-example.txt"));
-//        Assertions.assertEquals(6, output);
-//    }
-//
-//    @Test
-//    void solveInputB() {
-//        long output = new Day9().solveB(getInput("day9-input.txt"));
-//        Assertions.assertEquals(8245452805243L, output);
-//    }
+    @Test
+    void solveExampleB() {
+        long output = new Day9().solveB(getInput("day9-example.txt"));
+        Assertions.assertEquals(2, output);
+    }
+
+    @Test
+    void solveInputB() {
+        long output = new Day9().solveB(getInput("day9-input.txt"));
+        Assertions.assertEquals(908, output);
+    }
 
     List<List<Integer>> getInput(String file) {
         var lines = TestUtil.readInput(file);
