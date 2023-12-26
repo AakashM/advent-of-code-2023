@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 import static java.util.stream.Collectors.toSet;
 
 public class Day11 {
-    public long solveA(List<List<Character>> input) {
+    public long solve(List<List<Character>> input, long distance) {
         Set<Integer> emptyRows = IntStream.range(0, input.size())
                 .filter(r -> input.get(r).stream().allMatch(ch -> ch == '.'))
                 .boxed().collect(toSet());
@@ -16,20 +16,20 @@ public class Day11 {
 
         var cells = new ArrayList<Cell>();
 
-        int skippedRows = 0;
+        long skippedRows = 0;
         for (int r = 0; r < input.size(); r++) {
             if (emptyRows.contains(r)) {
                 skippedRows++; continue;
             }
 
-            int skippedCols = 0;
+            long skippedCols = 0;
             for (int c = 0; c < input.get(r).size(); c++) {
                 if (emptyColumns.contains(c)) {
                     skippedCols++; continue;
                 }
 
                 if (input.get(r).get(c) == '#') {
-                    cells.add(new Cell(r + skippedRows, c + skippedCols));
+                    cells.add(new Cell(r + skippedRows * distance, c + skippedCols * distance));
                 }
             }
         }
@@ -45,6 +45,6 @@ public class Day11 {
         return output;
     }
 
-    record Cell(int r, int c) {
+    record Cell(long r, long c) {
     }
 }

@@ -6,31 +6,18 @@ import org.junit.jupiter.params.provider.CsvSource;
 import java.util.List;
 
 public class Day11Test {
-
     @ParameterizedTest
     @CsvSource({
-            "day11-example.txt,374",
-            "day11-input.txt,10231178",
-
+            "day11-example.txt, 2,      374",
+            "day11-example.txt, 10,     1030",
+            "day11-example.txt, 100,    8410",
+            "day11-input.txt,   2,      10231178",
+            "day11-input.txt,   1000000,622120986954",
     })
-    void solveA(String path, int expected) {
-        long output = new Day11().solveA(getInput(path));
+    void solve(String path, int distance, long expected) {
+        long output = new Day11().solve(getInput(path), distance - 1);
         Assertions.assertEquals(expected, output);
     }
-
-//    @ParameterizedTest
-//    @CsvSource({
-//            "day11-exampleB1.txt,4",
-//            "day11-exampleB2.txt,4",
-//            "day11-exampleB3.txt,8",
-//            "day11-exampleB4.txt,10",
-//            "day11-input.txt,401"
-//
-//    })
-//    void solveB(String path, int expected) {
-//        long output = new Day11().solveB(getInput(path));
-//        Assertions.assertEquals(expected, output);
-//    }
 
     List<List<Character>> getInput(String file) {
         return TestUtil.readInput(file).stream()
